@@ -1,0 +1,43 @@
+//antialiased,subpixel-antialiased,none
+$font-smoothing: antialiased;
+
+//auto,optimizeSpeed,optimizeLegibility,geometricPrecision
+$text-rendering: auto;
+$font-montserrat: "Montserrat", sans-serif;
+$font-montserrat-bold: "Montserrat", sans-serif;
+$font-yugothic: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+$base-font-size: 16px;
+$base-font-color: #101010;
+
+//main colors
+$color-base: $base-font-color;
+$color-black: #000;
+$color-main-bg: #ffffff;
+$color-light: $color-main-bg;
+$color-inactive: #757575;
+$color-white: #ffffff;
+$color-sub-text: #ccc;
+
+//breakpoint
+$breakpoint-bestview: 1365px;
+$breakpoint-ipad: 1024px;
+$breakpoint-mobile: 767px;
+$breakpoint-mobile-min: 375px;
+
+//site size
+$site-size: 1120px + 60px;
+
+//easing
+$ease: ease;
+$ease-in-out: ease-in-out;
+$duration: 0.25s;
+
+//path
+$path-font: "../../libraries/fonts/";
+$image-path: "../images/";
+
+//z-index
+$z-max: 10;
+$z-max9: 9;
+$z-min2: 2;
+$z-min: 1;

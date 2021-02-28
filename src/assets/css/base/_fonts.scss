@@ -1,0 +1,16 @@
+/* Century Gothic */
+
+@font-face {
+  font-family: $font-montserrat;
+  src: url(#{$path-font}Montserrat/Montserrat-Black.ttf) format('ttf');
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Century Gothic Bold */
+@font-face {
+  font-family: $font-montserrat-bold;
+  src:  url(#{$path-font}Montserrat/Montserrat-Bold.ttf) format('ttf');
+  font-style: normal;
+  font-weight: bold;
+}

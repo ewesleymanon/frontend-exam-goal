@@ -1,0 +1,17 @@
+.nav {
+  height: 100px;
+  background-color: $color-white;
+}
+
+.nav-logo {
+  height: 30px;
+  width: auto;
+}
+
+.nav-session {
+  font-family: $font-montserrat;
+  font-weight: bold;
+  font-size: 18px;
+  color: $color-black;
+  text-decoration: none;
+}

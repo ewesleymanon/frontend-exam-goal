@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "img": "require('../assets/images/posts.png').default",
+    "title": "<span>サンプルテキスト</span><br/><span>サンプル ルテキスト</span><br/><span>サンプルテキスト</span>",
+    "date": "2019.06.19"
+  },
+  {
+    "id": 1,
+    "img": "require('../assets/images/posts.png').default",
+    "title": "<span>サンプルテキスト</span><br/><span>サンプル ルテキスト</span><br/><span>サンプルテキスト</span>",
+    "date": "2019.07.20"
+  },
+  {
+    "id": 2,
+    "img": "require('../assets/images/posts.png').default",
+    "title": "<span>サンプルテキスト</span><br/><span>サンプル ルテキスト</span><br/><span>サンプルテキスト</span>",
+    "date": "2019.08.21"
+  }
+]

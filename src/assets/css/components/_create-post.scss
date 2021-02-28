@@ -1,0 +1,23 @@
+.create-post {
+  margin-top: 63px;
+}
+
+.create-post-button-wrapper {
+  width: 100%;
+  max-width: $site-size;
+  text-align: right;
+  display: block;
+  margin-left: auto;
+  padding: 0 30px;
+}
+
+.create-post-button {
+  color: $color-black;
+  font-family: $font-montserrat;
+  font-size: 20px;
+  font-weight: 700;
+
+  &:first-of-type {
+    margin-right: 48px;
+  }
+}

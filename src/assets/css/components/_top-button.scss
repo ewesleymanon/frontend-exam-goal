@@ -1,0 +1,25 @@
+.top-button {
+  position: absolute;
+  bottom: -78px;
+  right: 30px;
+  display: block;
+  background-color: $color-white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.top-button-arrow {
+  height: 9px;
+  width: auto;
+  margin: 0 auto 10px;
+}
+
+.top-button-text {
+  font-family: $font-montserrat;
+  font-size: $base-font-size;
+  font-weight: 700;
+  color: $color-black;
+  letter-spacing: 0.1em;
+}

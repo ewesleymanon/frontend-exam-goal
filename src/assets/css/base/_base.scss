@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  -webkit-text-size-adjust: auto;
+  text-size-adjust: auto;
+  -webkit-font-smoothing: $font-smoothing; // stylelint-disable property-no-unknown
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: $font-smoothing;
+  text-rendering: $text-rendering;
+  font-size: $base-font-size;
+  font-family: $font-yugothic;
+  color: $base-font-color;
+  background-color: $color-white;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+
+  &[href^="tel"]  {
+    color: $base-font-color;
+  }
+
+  &:focus,
+  &:active,
+  &:visited {
+    outline: none !important;
+  }
+
+  // for blending text
+  &.is-blend {
+    @media only screen and (min-width: 767px) {
+      color: $color-white !important;
+
+      &::before,
+      &::after {
+        background-color: $color-white !important;
+        color: $color-white !important;
+      }
+    }
+  }
+}
+
+div {
+  &::before,
+  &::after {
+    &:focus {
+      outline: none !important;
+    }
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.svg-sprite {
+  display: none;
+}
+
+.is-blend {
+  @media only screen and (min-width: 767px) {
+    color: $color-white !important;
+    mix-blend-mode: difference;
+    position: relative;
+    z-index: 999;
+
+    a {
+      color: $color-white !important;
+    }
+
+    &::before,
+    &::after {
+      background-color: $color-white !important;
+      color: $color-white !important;
+    }
+  }
+}
+
+

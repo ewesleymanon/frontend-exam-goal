@@ -1,0 +1,21 @@
+.breadcrumb {
+  background-color: #f5f5f5;
+  padding: 32px 0;
+}
+
+.breadcrumb-inner {
+  max-width: $site-size;
+  display: block;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.breadcrumb-text {
+  color: $color-black;
+  font-family: $font-montserrat;
+  font-size: $base-font-size;
+}
+
+.breadcrumb-seperator {
+  margin: 0 10px;
+}

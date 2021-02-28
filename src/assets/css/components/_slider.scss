@@ -1,0 +1,29 @@
+.slider {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 100px);
+}
+
+.slider-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: flex-end;
+  align-content: center;
+  flex-wrap: wrap;
+  height: calc(100vh - 100px); //666 design
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: right;
+
+  &.is-active {
+    display: flex;
+  }
+}
+
+.slider-container {
+  display: flex;
+}

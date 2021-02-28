@@ -1,0 +1,135 @@
+.form-title {
+  font-family: $font-montserrat;
+  font-size: 30px;
+  font-weight: 700;
+  color: $color-black;
+  margin-bottom: 50px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-size: 18px;
+  font-family: $font-montserrat;
+  font-weight: 400;
+  color: $color-black;
+  margin-bottom: 5px;
+}
+
+.form-field {
+  width: 100%;
+  height: 60px;
+  border: 1px solid $color-black;
+  color: $color-black;
+  font-family: $font-montserrat;
+  font-size: 18px;
+  padding: 0 15px;
+}
+
+.form-status {
+  width: 100%;
+  font-family: $font-montserrat;
+  font-size: $base-font-size;
+  color: $color-black;
+  text-align: center;
+  padding: 20px 0;
+  margin: 20px 0;
+
+  &.is-error {
+    background-color: #FFEBEE;
+  }
+
+  &.is-success {
+    background-color: #F0F6FC;
+  }
+}
+
+.form-post-date {
+  font-family: $font-montserrat;
+  font-size: 20px;
+  font-weight: 400;
+  background-color: none;
+  border: 0;
+  margin: 33px 0 19px; 
+
+  &::placeholder {
+    background-color: none;
+  }
+}
+
+.form-post-field-title {
+  height: 150px;
+  width: 100%;
+  border: 1px solid $color-black;
+  font-size: 40px;
+  font-family: $font-yugothic;
+  padding: 23px 19px 0;
+  margin-bottom: 31px;
+
+  &:disabled {
+    background-color: transparent;
+  }
+}
+
+.form-post-field-text::-placeholder {
+  padding: 0;
+}
+
+.form-post-field-textarea {
+  height: 394px;
+  width: 100%;
+  border: 1px solid $color-black;
+  font-size: 18px;
+  font-family: $font-yugothic;
+  padding: 25px;
+  margin-bottom: 31px;
+}
+
+.form-post-group {
+  height: 540px;
+  position: relative;
+  margin-bottom: 36px;
+  background-color: #d6d6d6;
+  border: 1px solid #d6d6d6;
+}
+
+.form-post-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: none;
+
+  &.is-visible {
+    display: block;
+  }
+}
+
+.form-post-upload {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.form-post-upload {
+  color: transparent;
+}
+.form-post-upload::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.form-post-upload::before {
+  text-align: center;
+  content: 'UPLOAD IMAGE';
+  color: $color-white;
+  display: inline-block;
+  background-color: $color-black;
+  padding: 23px 0;
+  width: 260px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: $font-montserrat;
+  font-weight: 700;
+  font-size: 20px;
+}
