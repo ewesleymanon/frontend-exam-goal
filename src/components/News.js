@@ -53,7 +53,7 @@ const News = () => {
   return (
     <section className="news">
       <div className="news-block">
-        <h2 className="news-heading">News</h2>
+        <h2 className="news-heading">NEWS</h2>
         {
           auth.isLogged && auth.role == 'admin' 
             ? <Link className="news-create-link" to="/news/create">Create New Post</Link>
@@ -62,8 +62,8 @@ const News = () => {
       </div>
       <ul className="news-list">
         {
-          postsToShow &&
-            postsToShow.map((item, index) => (
+          postsToShow 
+            ? postsToShow.map((item, index) => (
               <li className="news-list-item" key={index}>
                 <Link className="news-list-link" to={'/news/single/'+ item.id}>
                   <div className="news-list-image" style={{backgroundImage: `url(${item.img})`}}></div>
@@ -72,6 +72,7 @@ const News = () => {
                 </Link>
               </li>
             ))
+            : <p>Fetching data...</p>
         }
       </ul>
       {

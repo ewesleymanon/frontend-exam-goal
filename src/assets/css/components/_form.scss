@@ -3,7 +3,8 @@
   font-size: 30px;
   font-weight: 700;
   color: $color-black;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
+  letter-spacing: 0.1em;
 }
 
 .form-group {
@@ -15,7 +16,8 @@
   font-family: $font-montserrat;
   font-weight: 400;
   color: $color-black;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
 }
 
 .form-field {
@@ -53,6 +55,7 @@
   background-color: none;
   border: 0;
   margin: 33px 0 19px; 
+  letter-spacing: 0.2em;
 
   &::placeholder {
     background-color: none;
@@ -147,4 +150,5 @@
   font-family: $font-montserrat;
   font-weight: 700;
   font-size: 20px;
+  letter-spacing: 0.11em;
 }

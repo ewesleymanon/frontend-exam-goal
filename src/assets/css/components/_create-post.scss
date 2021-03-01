@@ -6,8 +6,9 @@
   width: 100%;
   max-width: $site-size;
   text-align: right;
-  display: block;
-  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
   padding: 0 30px;
 }
 
@@ -16,6 +17,7 @@
   font-family: $font-montserrat;
   font-size: 20px;
   font-weight: 700;
+  letter-spacing: 0.1em;
 
   &:first-of-type {
     margin-right: 48px;

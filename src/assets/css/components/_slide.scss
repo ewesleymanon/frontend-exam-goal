@@ -9,13 +9,13 @@
 .slide-heading {
   font-size: 60px;
   font-family: $font-yugothic;
-  font-weight: 700;
+  font-weight: 900;
   color: $color-white;
 
   span {
     background-color: $color-black;
     margin: 0 0 5px;
-    padding: 10px 15px;
+    padding: 13px 15px;
     display: inline-block;
   }
 }
@@ -26,7 +26,8 @@
   font-weight: 400;
   color: $color-black;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 20px;
+  letter-spacing: 0.19em;
 }
 
 .slide-prev {

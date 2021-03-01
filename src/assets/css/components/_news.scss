@@ -3,6 +3,7 @@
   font-size: 50px;
   font-weight: 700;
   color: $color-black;
+  letter-spacing: 0.1em;
 }
 
 .news-list {
@@ -37,9 +38,9 @@
   font-family: $font-montserrat;
   font-size: $base-font-size;
   font-weight: 700;
-  line-height: 2;
   color: $color-black;
-  margin-top: 25px;
+  margin-top: 27px;
+  letter-spacing: 0.1em;
 }
 
 .news-list-heading {
@@ -49,13 +50,14 @@
   line-height: 1.5;
   margin-top: 14px;
   align-self: center;
+  letter-spacing: -0.03em;
 }
 
 .news-block {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 98px 0 65px;
+  margin: 100px 0 71px;
 }
 
 .news-create-link {
@@ -64,4 +66,5 @@
   font-weight: 700;
   color: $color-black;
   align-self: center;
+  letter-spacing: 0.1em;
 }

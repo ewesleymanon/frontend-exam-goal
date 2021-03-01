@@ -4,6 +4,7 @@
   font-weight: 400;
   color: $color-black;
   margin-top: 120px;
+  letter-spacing: 0.2em;
 }
 
 .single-news-heading {
@@ -11,14 +12,16 @@
   font-size: 40px;
   font-weight: 700;
   color: $color-black;
-  line-height: 2;
+  line-height: 1.7;
+  letter-spacing: 0.11em;
+  margin-top: 31px;
 }
 
 .single-news-image {
   width: 1120px;
   height: 540px;
   object-fit: cover;
-  margin-top: 50px;
+  margin-top: 37px;
 }
 
 .single-news-content {
@@ -26,8 +29,9 @@
   font-size: $base-font-size;
   font-weight: 500;
   color: $color-black;
-  line-height: 2;
-  margin-top: 60px;
+  line-height: 2.5;
+  margin-top: 54px;
+  letter-spacing: 0.1em;
 }
 
 .single-news-comment {
@@ -41,6 +45,7 @@
   font-weight: 700;
   color: $color-black;
   margin-bottom: 40px;
+  letter-spacing: 0.1em;
 }
 
 .single-news-comment-item {
