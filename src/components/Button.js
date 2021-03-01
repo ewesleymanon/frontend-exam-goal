@@ -1,6 +1,14 @@
-const Button = ({title, onClick}) => {
+import Loading from './Loading';
+
+const Button = ({title, onClick, type, loading, modifier}) => {
   return (
-    <a href="#" onClick={onClick} className="button">{title}</a>
+    <button type={type} onClick={onClick} className={"button " + modifier}>
+      {
+        loading
+          ? <Loading/>
+          : <span>{title}</span>
+      }  
+    </button>
   )
 }
 

@@ -4,116 +4,163 @@ const slideImage = require('../assets/images/hero.png').default;
 const arrowLeft = require('../assets/images/arrow-left.svg').default;
 const arrowRight = require('../assets/images/arrow-right.svg').default;
 
-// const slidesData = require('../json/slides.json');
+const slideWidth = 100;
 
-const Slider = () => {
-  let [show, setShow] = useState(false);
-  let [direction, setDirection] = useState(1);
-  let [current, setCurrent] = useState(0);
-  let [transitionName, setTransitionName] = useState('fade');
-
-  const [slides, setSlides] = useState([
+const _items = [
     {
-      id: 0,
-      img: slideImage,
-      title: '<span>サンプルテキスト</span><br/><span>サンプル ルテキスト</span><br/><span>サンプルテキスト</span>',
-      date: '2019.06.19'
+        slide: {
+          title: '<span>サンプルテキスト</span><br/><span>サンプル ルテキスト</span><br/><span>サンプルテキスト</span>',
+          date: '2019.06.19',
+          image: slideImage
+        }
     },
     {
-      id: 1,
-      img: slideImage,
-      title: '<span>サンプルテキスト</span><br/><span>サンプル ルテキスト</span><br/><span>サンプルテキスト</span>',
-      date: '2019.07.20'
-    },
-    {
-      id: 2,
-      img: slideImage,
-      title: '<span>サンプルテキスト</span><br/><span>サンプル ルテキスト</span><br/><span>サンプルテキスト</span>',
-      date: '2019.08.21'
-    }
-  ]);
-
-  function handleJump(index) {
-    current < index
-      ? setTransitionName('slide-next-enter')
-      : setTransitionName('slide-prev-enter');
-    setCurrent(index);
-  }
-
-  function handleSlide(dir) {
-    setDirection(dir);
-
-    dir === 1
-      ? setTransitionName('slide-next-enter')
-      : setTransitionName('slide-prev-enter');
-    const len = slides.length;
-    setCurrent((current + (dir % len) + len) % len);
-  }
-
-  const SlideItem = ({id, img, title, date}) => {
-    return (
-      <li className={'slider-item ' + (id === current ? 'is-active' : '')} style={{backgroundImage: `url(${img})`}}>
-        <div className="slide-content">
-          <h1 className="slide-heading" dangerouslySetInnerHTML={{__html: title}}/>
-          <p className="slide-date">{ date }</p>
-        </div>
-      </li>
-    )
-  }
-
-  useEffect(() => {
-    setShow(true);
-  });
-
-  return (
-    <section className="slider">
-      {
-        show === true &&
-        <>
-          <ul className="slider-container">
-            {
-              slides.map(item => (
-                <SlideItem
-                  key={item.id}
-                  id={item.id}
-                  img={item.img}
-                  title={item.title}
-                  date={item.date}
-                />
-              ))
-            }
-          </ul>
-          
-          <div className="slider-nav">
-            <img 
-            className="slide-prev"
-            src={arrowLeft}
-            onClick={() => handleSlide(-1)}
-            alt="Arrow Left"
-            />
-
-            <img 
-            className="slide-next"
-            src={arrowRight}
-            onClick={() => handleSlide(1)}
-            alt="Arrow Right"
-            />
-          </div>
-          <ul className="slide-indicators">
-            {
-              slides.map(item => (
-                <li
-                  key={item.id}
-                  className={(item.id === current) ? 'active' : ''}
-                  onClick={() => handleJump(item.id)}
-                />
-              ))
-            }
-          </ul>
-        </>
+      slide: {
+        title: '<span>サンプルテキスト</span><br/><span>サンプル ルテキスト</span><br/><span>サンプルテキスト</span>',
+        date: '2019.06.19',
+        image: slideImage
       }
-    </section>
-  )
+    },
+    {
+      slide: {
+        title: '<span>サンプルテキスト</span><br/><span>サンプル ルテキスト</span><br/><span>サンプルテキスト</span>',
+        date: '2019.06.19',
+        image: slideImage
+      }
+    }
+]
+
+const length = _items.length
+_items.push(..._items)
+
+
+const sleep = (ms = 0) => {
+    return new Promise(resolve => setTimeout(resolve, ms))
 }
 
+const createItem = (position, idx, activeIdx) => {
+    const item = {
+        styles: {
+            transform: `translateX(${position * slideWidth}vw)`
+        },
+        slide: _items[idx].slide
+    }
+
+    switch (position) {
+        case length - 1:
+        case length + 1:
+            item.styles = { ...item.styles, filter: '' }
+            break
+        case length:
+            break
+        default:
+            item.styles = { ...item.styles, opacity: 0 }
+            break
+    }
+
+    return item
+}
+
+const SliderSlideItem = ({ pos, idx, activeIdx }) => {
+    const item = createItem(pos, idx, activeIdx)
+
+    return (
+        <li className='slider-slide-item' style={{...item.styles, backgroundImage: `url(${item.slide.image})`}}>
+          <div className="slide-content">
+            <h1 className="slide-heading" dangerouslySetInnerHTML={{__html: item.slide.title}}/>
+            <p className="slide-date">{ item.slide.date }</p>
+          </div>
+        </li>
+    )
+}
+
+const keys = Array.from(Array(_items.length).keys())
+
+const Slider = () => {
+    const [items, setItems] = useState(keys)
+    const [isTicking, setIsTicking] = useState(false)
+    const [activeIdx, setActiveIdx] = useState(0)
+    const bigLength = items.length
+
+    const handlePrevClick = (jump = 1) => {
+        if (!isTicking) {
+            setIsTicking(true)
+            setItems(prev => {
+                return prev.map((_, i) => prev[(i + jump) % bigLength])
+            })
+        }
+    }
+
+    const handleNextClick = (jump = 1) => {
+        if (!isTicking) {
+            setIsTicking(true)
+            setItems(prev => {
+                return prev.map(
+                    (_, i) => prev[(i - jump + bigLength) % bigLength]
+                )
+            })
+        }
+    }
+
+    const handleDotClick = idx => {
+        if (idx < activeIdx) handlePrevClick(activeIdx - idx)
+        if (idx > activeIdx) handleNextClick(idx - activeIdx)
+    }
+
+    useEffect(() => {
+        if (isTicking) sleep(300).then(() => setIsTicking(false))
+    }, [isTicking])
+
+    useEffect(() => {
+        setActiveIdx((length - (items[0] % length)) % length) // prettier-ignore
+    }, [items])
+
+    return (
+        <div className='slider-wrap'>
+            <div className='slider-inner'>
+                <div className="slider-nav">
+                    <img 
+                    className="slide-prev"
+                    src={arrowLeft}
+                    onClick={() => handlePrevClick()}
+                    alt="Arrow Left"
+                    />
+
+                    <img 
+                    className="slide-next"
+                    src={arrowRight}
+                    onClick={() => handleNextClick()}
+                    alt="Arrow Right"
+                    />
+                </div>
+                <div className='slider-container'>
+                    <ul className='slider-slide-list'>
+                        {items.map((pos, i) => (
+                            <SliderSlideItem
+                                key={i}
+                                idx={i}
+                                pos={pos}
+                                activeIdx={activeIdx}
+                            />
+                        ))}
+                    </ul>
+                </div>
+                <button
+                    className='slider-btn slider-btn--next'
+                    onClick={() => handleNextClick()}>
+                    <i className='slider-btn-arrow slider-btn-arrow--right' />
+                </button>
+                <div className='slider-dots'>
+                    {items.slice(0, length).map((pos, i) => (
+                        <button
+                            key={i}
+                            onClick={() => handleDotClick(i)}
+                            className={i === activeIdx ? 'dot active' : 'dot'}
+                        />
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
 export default Slider;

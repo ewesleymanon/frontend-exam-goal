@@ -3,9 +3,13 @@
   width: 100%;
   background-color: $color-black;
   color: white;
+  line-height: 5.6;
+  text-align: center;
+}
+
+.footer-text {
   font-family: $font-montserrat;
   font-size: $base-font-size;
   font-weight: 400;
-  line-height: 5.6;
-  text-align: center;
+  letter-spacing: 0.09em;
 }

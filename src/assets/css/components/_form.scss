@@ -3,7 +3,8 @@
   font-size: 30px;
   font-weight: 700;
   color: $color-black;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
+  letter-spacing: 0.1em;
 }
 
 .form-group {
@@ -15,7 +16,8 @@
   font-family: $font-montserrat;
   font-weight: 400;
   color: $color-black;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
 }
 
 .form-field {
@@ -53,6 +55,7 @@
   background-color: none;
   border: 0;
   margin: 33px 0 19px; 
+  letter-spacing: 0.2em;
 
   &::placeholder {
     background-color: none;
@@ -85,6 +88,21 @@
   font-family: $font-yugothic;
   padding: 25px;
   margin-bottom: 31px;
+}
+
+.form-single-post-field-textarea {
+  height: 200px;
+  width: 100%;
+  border: 1px solid $color-black;
+  font-size: 19px;
+  font-family: $font-montserrat;
+  padding: 45px 40px;
+  margin: 50px 0 0;
+
+  &::placeholder {
+    font-style: italic;
+    font-weight: 500;
+  }
 }
 
 .form-post-group {
@@ -132,4 +150,5 @@
   font-family: $font-montserrat;
   font-weight: 700;
   font-size: 20px;
+  letter-spacing: 0.11em;
 }
