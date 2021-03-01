@@ -16,6 +16,15 @@
   font-size: $base-font-size;
 }
 
+.breadcrumb-text-link {
+  text-decoration: none;
+  color: $color-black;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .breadcrumb-seperator {
   margin: 0 10px;
 }

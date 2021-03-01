@@ -11,3 +11,9 @@ export const logout = (role) => {
     payload: role
   };
 };
+
+export const setUser = () => {
+  return {
+    type: 'SET_USER'
+  }
+}

@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../actions'
+import fire from '../base';
+import { logout } from '../actions';
 
 
 const logoSrc = require('../assets/images/logo-black.png').default;
@@ -13,6 +13,7 @@ const Header = () => {
 
   function handleLogout () {
     dispatch(logout());
+    fire.auth().signOut();
     localStorage.setItem('session', JSON.stringify({isLogged: false, role: 'user'}));
   }
 

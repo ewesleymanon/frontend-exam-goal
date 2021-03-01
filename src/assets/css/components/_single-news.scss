@@ -1,0 +1,67 @@
+.single-news-date {
+  font-family: $font-montserrat;
+  font-size: 20px;
+  font-weight: 400;
+  color: $color-black;
+  margin-top: 120px;
+}
+
+.single-news-heading {
+  font-family: $font-yugothic;
+  font-size: 40px;
+  font-weight: 700;
+  color: $color-black;
+  line-height: 2;
+}
+
+.single-news-image {
+  width: 1120px;
+  height: 540px;
+  object-fit: cover;
+  margin-top: 50px;
+}
+
+.single-news-content {
+  font-family: $font-yugothic;
+  font-size: $base-font-size;
+  font-weight: 500;
+  color: $color-black;
+  line-height: 2;
+  margin-top: 60px;
+}
+
+.single-news-comment {
+  margin-top: 120px;
+  padding: 60px 0;
+}
+
+.single-news-comment-heading {
+  font-family: $font-montserrat;
+  font-size: 50px;
+  font-weight: 700;
+  color: $color-black;
+  margin-bottom: 40px;
+}
+
+.single-news-comment-item {
+  background-color: #f5f5f5;
+  padding: 60px 40px 52px;
+  margin-bottom: 50px;
+}
+
+.single-news-comment-text {
+  font-family: $font-yugothic;
+  font-size: $base-font-size;
+  font-weight: 500;
+  color: $color-black;
+  line-height: 2;
+}
+
+.single-news-comment-date {
+  font-family: $font-montserrat;
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-black;
+  line-height: 2;
+  margin-top: 21px;
+}

@@ -87,6 +87,21 @@
   margin-bottom: 31px;
 }
 
+.form-single-post-field-textarea {
+  height: 200px;
+  width: 100%;
+  border: 1px solid $color-black;
+  font-size: 19px;
+  font-family: $font-montserrat;
+  padding: 45px 40px;
+  margin: 50px 0 0;
+
+  &::placeholder {
+    font-style: italic;
+    font-weight: 500;
+  }
+}
+
 .form-post-group {
   height: 540px;
   position: relative;

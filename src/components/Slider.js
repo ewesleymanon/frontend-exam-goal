@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const slideImage = require('../assets/images/hero.png').default;
+const slideImage2 = require('../assets/images/gr_bg.png').default;
 const arrowLeft = require('../assets/images/arrow-left.svg').default;
 const arrowRight = require('../assets/images/arrow-right.svg').default;
 
@@ -21,7 +22,7 @@ const Slider = () => {
     },
     {
       id: 1,
-      img: slideImage,
+      img: slideImage2,
       title: '<span>サンプルテキスト</span><br/><span>サンプル ルテキスト</span><br/><span>サンプルテキスト</span>',
       date: '2019.07.20'
     },

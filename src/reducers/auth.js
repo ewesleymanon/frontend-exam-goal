@@ -1,3 +1,5 @@
+import {db} from '../base';
+
 const session = JSON.parse(localStorage.getItem('session'));
 let authData = null;
 if(session) {
@@ -9,6 +11,7 @@ if(session) {
   }
 }
 
+
 const authReducer = (state = authData, action) => {
   switch(action.type) {
     case 'SIGN_IN': 
@@ -16,11 +19,13 @@ const authReducer = (state = authData, action) => {
         isLogged: true,
         role: action.payload
       });
+      break;
     case 'LOGOUT': 
       return Object.assign({}, state, {
         isLogged: false,
         role: 'user'
       });
+      break;
     default: 
       return state;
   }

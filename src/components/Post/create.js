@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import fire from '../../base';
 
 const CreatePost = () => {
 
@@ -9,8 +10,6 @@ const CreatePost = () => {
   const [content, setContent] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  let posts = JSON.parse(localStorage.getItem('posts'));
-
 
   function handleOnChangeTitle(e) {
     setTitle(e.target.value)
@@ -30,22 +29,18 @@ const CreatePost = () => {
 
     let mm = today.getMonth()+1; 
     let yyyy = today.getFullYear();
+
     if(dd<10) 
-    {
-        dd='0'+dd;
-    } 
+      dd='0'+dd;
 
     if(mm<10) 
-    {
-        mm='0'+mm;
-    } 
+      mm='0'+mm;
 
     return today = yyyy + '.' + mm + '.' + dd;
   }
 
   function handleLoadFile(event) {
-    console.log(event.target.files[0]);
-    setImageUpload(event.target.files[0]);
+    setImageUpload(event.target.files[0]);  
     setError('');
     setSuccess('');
   }
@@ -54,50 +49,34 @@ const CreatePost = () => {
     if(imageUpload)
       return URL.createObjectURL(imageUpload);
   }
-
-  const getBase64 = (file) => {
-    return new Promise((resolve,reject) => {
-       const reader = new FileReader();
-       reader.onload = () => resolve(reader.result);
-       reader.onerror = error => reject(error);
-       reader.readAsDataURL(file);
-    });
-  }
-
-  const setInLocalStorage = (keyName, value) => {
-    try {
-        localStorage.setItem(keyName, JSON.stringify(value));
-    } catch (error) {
-        console.log('Error in local storage', error);
-        setInLocalStorage(keyName, JSON.parse(localStorage.getItem(keyName)));
-    }
-  };
-  
   
 
   async function handleSavePost(e) {
+    e.preventDefault();
+
+    const storageRef = fire.storage().ref();
+    const fileRef = storageRef.child(imageUpload.name);
+    await fileRef.put(imageUpload)
+    const fileUrl = await fileRef.getDownloadURL();
     if(title && imageUpload && content) {
-
-      const base64 = await getBase64(imageUpload);
-
-      if(base64) {
-        const submitData = {
-          id: posts.length,
-          img: base64,
+      fire.firestore()
+        .collection('posts')
+        .doc()
+        .set({
           title: title,
           content: content,
-          date: date
-        }
-  
-        posts = [...posts, submitData];
-        // localStorage.setItem('posts', JSON.stringify(posts));
-        setInLocalStorage('posts', posts);
-        setSuccess('Successfully Added!');
-        setTitle('');
-        setImageUpload(null);
-        setContent('');
-      }
-
+          img: fileUrl,
+          date: date,
+        })
+        .then(() => {
+          setImageUpload(null)
+          setSuccess('Successfully Added!');
+        })
+        .catch(error => {
+          console.log(error);
+          setError(error);
+        })
+      
     } else {
       setError('All fields are required!');
     }
