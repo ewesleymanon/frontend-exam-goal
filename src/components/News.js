@@ -76,8 +76,8 @@ const News = () => {
       </ul>
       {
         ref.current <= news.length
-        ?<a href="#" onClick={(e) => handleShowMorePosts(e)} className="load-more-button">LOAD MORE</a>
-        :<a href="#" onClick={(e) => handleBack(e)} className="load-more-button">Back</a>
+        ?<a onClick={(e) => handleShowMorePosts(e)} className="load-more-button">LOAD MORE</a>
+        :<a onClick={(e) => handleBack(e)} className="load-more-button">Back</a>
       }
     </section>
   )

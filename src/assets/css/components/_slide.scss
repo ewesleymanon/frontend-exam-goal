@@ -36,6 +36,7 @@
   transform: translateY(-50%);
   width: auto;
   height: 22px;
+  z-index: 10;
 }
 
 .slide-next {
@@ -45,6 +46,7 @@
   transform: translateY(-50%);
   width: auto;
   height: 22px;
+  z-index: 10;
 }
 
 .slide-indicators {
@@ -67,28 +69,4 @@
       background: $color-black;
     }
   }
-}
-
-/* GO TO NEXT SLIDE */
-.slide-next-enter-active,
-.slide-next-leave-active {
-  transition: transform 0.5s ease-in-out;
-}
-.slide-next-enter {
-  transform: translate(100%);
-}
-.slide-next-leave-to {
-transform: translate(-100%);
-}
-
-/* GO TO PREVIOUS SLIDE */
-.slide-prev-enter-active,
-.slide-prev-leave-active {
-  transition: transform 0.5s ease-in-out;
-}
-.slide-prev-enter {
-  transform: translate(-100%);
-}
-.slide-prev-leave-to {
-  transform: translate(100%);
 }

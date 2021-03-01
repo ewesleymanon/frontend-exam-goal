@@ -1,7 +1,137 @@
+$slide-count: 3;
+$slide-width: 100vw;
+
 .slider {
   position: relative;
   width: 100%;
   height: calc(100vh - 100px);
+}
+
+.slider-wrap {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slider-inner {
+  height: calc(100vh - 100px);
+  position: relative;
+  width: $slide-width;
+}
+
+.slider-container {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slider-slide-list {
+  height: 100%;
+  left: 50%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  transform: translateX(-50%);
+  width: calc(#{($slide-count + 0.5) * $slide-width * 2});
+}
+
+.slider-slide-item {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  flex-wrap: wrap;
+  height: calc(100vh - 100px);
+  margin: 0;
+  position: absolute;
+  transition: all 0.3s;
+  width: $slide-width;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: right;
+}
+
+.slider-slide-item-img-link {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+    width: 100%;
+  }
+}
+
+.slider-btn {
+  align-items: center;
+  background: 0;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &--prev {
+    left: -10rem;
+  }
+
+  &--next {
+    right: -10rem;
+  }
+}
+
+.slider-btn-arrow {
+  border: solid black;
+  border-width: 0 0.4rem 0.4rem 0;
+  height: 6rem;
+  padding: 3px;
+  width: 6rem;
+  z-index: 10;
+
+  &--left {
+    transform: rotate(135deg);
+  }
+
+  &--right {
+    transform: rotate(-45deg);
+  }
+}
+
+.slider-dots {
+  display: inline-block;
+  left: 50%;
+  bottom: 20px;
+  position: absolute;
+  transform: translateX(-50%);
+
+  .dot {
+    background: $color-white;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 2rem;
+    margin: 0 0.3rem;
+    outline: none;
+    transform: scale(0.5);
+    width: 2rem;
+
+    &.active {
+      background: black;
+    }
+  }
 }
 
 .slider-item {
